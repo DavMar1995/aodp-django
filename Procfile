@@ -1,0 +1,1 @@
+web: gunicorn ckandj.wsgi --log-file -

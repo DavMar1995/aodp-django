@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>台灣開放資料廠商分析</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <!-- <link rel="stylesheet" href="css/reset.css"> -->
+    <!-- <script type="text/javascript" src="js/ministry.js"></script> -->
+</head>
+<style>
+    * {
+        font-family: Microsoft JhengHei;
+        /* font-family: Times New Roman; */
+    }
+
+    #header {
+        padding: 10px;
+        margin-top: 0;
+        color: #5ff0df;
+        text-align: center;
+        font-weight: bold;
+        background-color: teal;
+        /* text-shadow: 2px 2px 5px red */
+    }
+
+    nav {
+        text-align: center;
+        margin: auto;
+        width: 100%;
+    }
+
+    #links button {
+        border: 1px solid teal;
+        border-radius: 10px;
+        /* background-color: darkgray; */
+    }
+
+    #links span {
+        color: teal;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .info {
+        text-indent: 30px;
+    }
+</style>
+
+<body class="w3-light-grey">
+    <h1 id="header">台灣開放資料廠商分析</h1>
+    <nav id="links">
+        <button id="ministry-btn" class="nav-btn w3-btn"><span>應用資料部會分析</span></button>
+        <button id="data_source-btn" class="nav-btn w3-btn"><span>資料來源分析</span></button>
+        <button id="corporation-btn" class="nav-btn w3-btn"><span>廠商分析</span></button>
+        <!-- <button id="cancer-btn" class="nav-btn w3-btn"><span>台灣癌症分析</span></button> -->
+        <button id="df1-btn" class="nav-btn w3-btn"><span>台灣登革熱分析(一)</span></button>
+        <button id="df2-btn" class="nav-btn w3-btn"><span>台灣登革熱分析(二)</span></button>
+    </nav>
+    <div>
+        <p class="info">
+            此分析為臺灣應用開放資料的廠商之資訊， 以各種視覺化圖型分析廠商的規模、分佈及應用領域及資料集來源等來分析。
+        </p>
+    </div>
+    <iframe id="frame" src="data_source.html" width="100%" scrolling="no" onload="resizeIframe(this)"></iframe>
+
+</body>
+
+<script>
+    window.onload = function () {
+        // init
+        frame = document.querySelector('#frame')
+        btns = document.querySelectorAll('.nav-btn')
+        dsBtn = document.querySelector('#data_source-btn')
+        mBtn = document.querySelector('#ministry-btn')
+        cBtn = document.querySelector('#corporation-btn')
+        // caBtn = document.querySelector('#cancer-btn')
+        df1Btn = document.querySelector('#df1-btn')
+        df2Btn = document.querySelector('#df2-btn')
+
+        enableOthers(btns, dsBtn)
+
+        dsBtn.addEventListener('click', function () {
+            frame.src = 'data_source.html'
+            enableOthers(btns, dsBtn)
+        })
+
+        mBtn.addEventListener('click', function () {
+            frame.src = 'ministry.html'
+            enableOthers(btns, mBtn)
+        })
+
+        cBtn.addEventListener('click', function () {
+            frame.src = 'corporation.html'
+            enableOthers(btns, cBtn)
+        })
+
+        df1Btn.addEventListener('click', function () {
+            frame.src = 'dengue_fever_1.html'
+            enableOthers(btns, df1Btn)
+        })
+
+        df2Btn.addEventListener('click', function () {
+            frame.src = 'dengue_fever_2.html'
+            enableOthers(btns, df2Btn)
+        })
+
+        // caBtn.addEventListener('click', function () {
+        //     frame.src = 'cancer.html'
+        //     enableOthers(btns, caBtn)
+        // })
+    }
+
+    function enableOthers(set, obj) {
+        console.log(obj)
+        for (i of set) {
+            i.disabled = false
+        }
+        obj.disabled = true
+    }
+
+    function resizeIframe(obj) {
+        obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px'
+    }
+</script>
+
+</html>

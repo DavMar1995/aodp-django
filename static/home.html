@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>資料視覺化 Data visualization</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel='stylesheet' href='css/nav_bar.css'>
+</head>
+
+<body class="w3-light-grey">
+    <h1 id="header">資料視覺化 Data visualization</h1>
+    <nav id="links">
+
+        <ul class="drop-down-menu">
+            <li>
+                <a class='dropbtn'>出入境分析</a>
+                <!-- <a>出入境分析</a> -->
+                <ul>
+                    <li><a class='w3-btn'><span>Japan</span></a>
+                        <ul>
+                            <li>
+                                <a id='Japan_vd-btn' class='nav-btn w3-btn'><span>各大洲訪日外客數儀表板</span></a>
+                            </li>
+                            <li>
+                                <a id='nfv_Japan-btn' class='nav-btn w3-btn'><span>訪日外國旅客人數</span></a>
+                            </li>
+                            <li>
+                                <a id='ftov_Japan-btn' class='nav-btn'><span>訪日外國人消費動向</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class='w3-btn'><span>Taiwan</span></a>
+                        <ul>
+                            <li>
+                                <a id='d_Taiwan_t-btn' class='nav-btn'><span>歷年中華民國國民出國目的地人數</span></a>
+                            </li>
+                            <li>
+                                <a id='ofv_Taiwan-btn' class='nav-btn'><span>歷年來台旅客國籍統計</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class='w3-btn'><span>Korea</span></a>
+                        <ul>
+                            <li>
+                                <a id='nt_Korea-btn' class='nav-btn'><span>南韓觀光人數分析</span></a>
+                            </li>
+                            <li>
+                                <a id='fv_Korea_b-btn' class='nav-btn'><span>南韓外國旅客來源分析</span></a>
+                            </li>
+                            <li>
+                                <a id='fv_Korea_p-btn' class='nav-btn'><span>南韓外國旅客數量分析</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- dengue_fever -->
+            <li>
+                <a class="dropbtn" id="df-drop">台灣登革熱分析</a>
+                <ul>
+                    <li>
+                        <a id="dfd-btn" class="nav-btn w3-btn"><span>台灣登革熱分析(一)</span></a>
+                    </li>
+                    <li>
+                        <a id="dfs-btn" class="nav-btn w3-btn"><span>台灣登革熱分析(二)</span></a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- od vender -->
+            <li>
+                <a class="dropbtn" id="od-drop">台灣開放資料廠商分析</a>
+                <ul>
+                    <li>
+                        <a id="ministry-btn" class="od-btn nav-btn w3-btn"><span>應用資料部會分析</span></a>
+                    </li>
+                    <li>
+                        <a id="data_source-btn" class="od-btn nav-btn w3-btn"><span>資料來源分析</span></a>
+                    </li>
+                    <li>
+                        <a id="corporation-btn" class="od-btn nav-btn w3-btn"><span>廠商分析</span></a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- GDP -->
+            <li>
+                <a id="gdp-btn" class="dropbtn">GDP與CO<span style="font-size: 1px"></span>2</span>的關聯分析</a>
+                <ul>
+                    <li>
+                        <a id="gdp-btn" class="nav-btn w3-btn"><span>AODP's GDP</span></a>
+                    </li>
+                    <li>
+                        <a id="co2-btn" class="nav-btn w3-btn"><span>AODP's CO<span style="font-size: 0.1px">2</span> production volume</span></a>
+                    </li>
+                    <li>
+                        <a id="gdp-co2-btn" class="nav-btn w3-btn"><span>The correlation between CO<span style="font-size: 0.1px">2</span> and GDP</span></a>
+                    </li>
+                </ul>
+
+            </li>
+
+            <!-- cancer -->
+            <li>
+                <a id="cancer-btn" class="dropbtn nav-btn w3-btn"><span>台灣癌症分析</span></a>
+            </li>
+
+            <!-- covid-19 -->
+            <li>
+                <a id="andac_Country-btn" class="dropbtn nav-btn w3-btn"><span>COVID-19各地區累積病例與死亡數分析</span></a>
+            </li>
+        </ul>
+
+    </nav>
+    <div>
+        <p id='od-info' class="info">
+            此分析為臺灣應用開放資料的廠商之資訊， 以各種視覺化圖型分析廠商的規模、分佈及應用領域及資料集來源等來分析。
+        </p>
+    </div>
+    <iframe id="frame" src="" width="100%" scrolling="no" onload="resizeIframe(this)"></iframe>
+
+</body>
+
+<script>
+    window.onload = function () {
+        // init
+        frame = document.querySelector('#frame')
+        btns = document.querySelectorAll('.nav-btn')
+
+        var files = []
+        // od_vender
+        files['data_source-btn'] = 'od_vender/data_source.html'
+        files['ministry-btn'] = 'od_vender/ministry.html'
+        files['corporation-btn'] = 'od_vender/corporation.html'
+        // cancer
+        files['cancer-btn'] = 'cancer/cancer.html'
+        // covid-19
+        files['andac_Country-btn'] = 'covid-19/Accumulated_number_of_death_and_affection_cases_by_COUNTRY.html'
+
+        // dengue_fever
+        files['df0-btn'] = 'dengue_fever/case_analysis.html'
+        files['df1-btn'] = 'dengue_fever/dengue_fever_1.html'
+        files['df2-btn'] = 'dengue_fever/dengue_fever_2.html'
+        files['dfd-btn'] = 'dengue_fever/Dengue_Fever_Analysis-20200830-Dashboard.html'
+        files['dfs-btn'] = 'dengue_fever/Dengue_Fever_Analysis-20200830-Stories.html'
+
+        // visitor
+        // japan
+        files['Japan_vd-btn'] = 'visitor/japan/各大洲訪日外客數儀表板.html'
+        files['nfv_Japan-btn'] = 'visitor/japan/Number_of_foreign_visitors_to_Japan.html'
+        files['ftov_Japan-btn'] = 'visitor/japan/Foreign_Travelers\'_Objectives_to_Visit_Japan-2015_to_2018.html'
+        // taiwan
+        files['d_Taiwan_t-btn'] = 'visitor/taiwan/Destination_of_Taiwanese_traveller.html'
+        files['ofv_Taiwan-btn'] = 'visitor/taiwan/Origins_of_foreign_visitors_to_Taiwan.html'
+        // korea
+        files['nt_Korea-btn'] = 'visitor/korea/Number_of_Tourist_of_Korea.html'
+        files['fv_Korea_b-btn'] = 'visitor/korea/Foreign_Visitor_to_Korea(bar_chart).html'
+        files['fv_Korea_p-btn'] = 'visitor/korea/Foreign_Visitor_to_Korea(pie_chart).html'
+        // GDP 
+        files['gdp-btn'] = 'gdp/GDP.html'
+        files['co2-btn'] = 'gdp/CO2.html'
+        files['gdp-co2-btn'] = 'gdp/CO2 and GDP.html'
+
+        for (btn of btns) {
+            console.log(btn.id)
+            initBtn(btn, files[btn.id])
+        }
+        // Set as DEFAULT Content  
+        document.querySelector('#dfd-btn').click()
+    }
+
+    function initBtn(obj, filename) {
+        odInfo = document.querySelector('#od-info')
+
+        obj.addEventListener('click', function () {
+            frame.src = filename
+            for (i of btns) {
+                i.disabled = false
+            }
+            obj.disabled = true
+
+            if (obj.classList.contains('od-btn')) {
+                odInfo.style.display = 'block'
+            } else {
+                odInfo.style.display = 'none'
+            }
+
+            resizeIframe(frame)
+        })
+    }
+
+    function resizeIframe(obj) {
+        obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px'
+    }
+</script>
+
+</html>

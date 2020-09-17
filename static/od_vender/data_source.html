@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<title>資料來源分析</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-family: Microsoft JhengHei;
+    }
+</style>
+
+<body class="w3-light-grey">
+
+    <div class="w3-content" style="max-width:1400px">
+        <header class="w3-container w3-center w3-padding-32">
+            <h1><b>資料來源分析</b></h1>
+        </header>
+        <div class="w3-row">
+            <div class="w3-col l12 s12">
+                <!-- 各行業別應用的資料集數量 -->
+                <div class="w3-card-4 w3-margin w3-white">
+
+                    <div class="w3-container">
+                        <h3><b>各行業別應用的資料集數量</b></h3>
+                    </div>
+
+                    <div class="w3-container">
+                        <p>由此圖我們可以看到資訊服務業、技術服務業及電腦、通信及視聽電子產品業3者所應用的資料集最多(盒子的高度包含了資料的中間50%的部分，盒子上緣代表上四分位數，下緣代表下四分位數)，同時不同廠商應用的資料集數量也差異很大，像是資訊服務業有些應用超過30多個資料集。可能是因為這3個行業本身都是科技應用的行業，具有大數據應用的專業能力，使他們善常於運用不同的資料集來解決其應用的決策問題。
+                        </p>
+                    </div>
+                    <div class='tableauPlaceholder' id='viz1597301962735' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;-_&#47;-_15972872366500&#47;sheet7&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='-_15972872366500&#47;sheet7' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;-_&#47;-_15972872366500&#47;sheet7&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en' /></object></div>
+
+                </div>
+                <hr>
+                <!-- 各應用領域應用的資料集數量 -->
+                <div class="w3-card-4 w3-margin w3-white">
+                    <div class="w3-container">
+                        <h3><b>各應用領域應用的資料集數量</b></h3>
+                    </div>
+
+                    <div class="w3-container">
+                        <p>資料工具與技術型的應用因主題廣泛，所運用的資料集數量差異最大，資料集數量也較多，最高的應用資料集高達30多個，生活與消費類的應用亦是，多數應用4-10個資料集，但亦有高達26-27個資料集的應用。整體而言，大多數的應用皆在10個資料集內。
+                        </p>
+                    </div>
+                    <div class='tableauPlaceholder' id='viz1597302082200' style='position: relative'><noscript><a
+                                href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;-_&#47;-_15972872366500&#47;sheet8&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='-_15972872366500&#47;sheet8' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;-_&#47;-_15972872366500&#47;sheet8&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en' /></object></div>
+                </div>
+                <hr>
+            </div>
+        </div><br>
+    </div>
+
+
+</body>
+<script type='text/javascript'>
+    // 各行業別應用的資料集數量
+    var industry = document.getElementById('viz1597302082200')
+    tableau(industry)
+
+    // 各應用領域應用的資料集數量
+    var field = document.getElementById('viz1597301962735')
+    tableau(field)
+
+    function tableau(divElement) {
+        var vizElement = divElement.getElementsByTagName('object')[0] 
+        vizElement.style.width = '100%'
+        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'
+        var scriptElement = document.createElement('script')
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'
+        vizElement.parentNode.insertBefore(scriptElement, vizElement)
+    }
+
+</script>
+
+</html>
