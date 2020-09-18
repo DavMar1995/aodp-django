@@ -131,7 +131,7 @@
             此分析為臺灣應用開放資料的廠商之資訊， 以各種視覺化圖型分析廠商的規模、分佈及應用領域及資料集來源等來分析。
         </p>
     </div>
-    <iframe id="frame" src="" width="100%" scrolling="no" onload="resizeIframe(self)"></iframe>
+    <iframe id="frame" src="" width="100%" scrolling="no" onload="resizeIframe(this)"></iframe>
 
 </body>
 
@@ -200,12 +200,10 @@
         // console.log(`Default content is ${DEFAULT_CONTENT.id}`)
         // frame.src = 'gdp/GDP.html'
         // resizeIframe(frame)
-
-        document.queryselect('#dfd-btn').click()
-
+        // document.querySelector('#dfd-btn').click()
         document.querySelector('#co2-btn').click()
     }
-
+    
     function initBtn(obj, filename) {
         odInfo = document.querySelector('#od-info')
 
