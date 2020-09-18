@@ -97,16 +97,18 @@
 
             <!-- GDP -->
             <li>
-                <a id="gdp-btn" class="dropbtn">Facts About AODP</a>
+                <a id="aodp-btn" class="dropbtn">Facts About AODP</a>
                 <ul>
                     <li>
-                        <a id="gdp-btn" class="nav-btn w3-btn"><span>AODP's GDP</span></a>
+                        <a id="gdp-btn" class="nav-btn w3-btn"><span>Economic Outlook of AODP Economies</span></a>
                     </li>
                     <li>
-                        <a id="co2-btn" class="nav-btn w3-btn"><span>AODP's CO<span style="font-size: 0.1px">2</span> production volume</span></a>
+                        <a id="co2-btn" class="nav-btn w3-btn"><span>AODP's CO<span style="font-size: 0.1px">2</span>
+                                production volume</span></a>
                     </li>
                     <li>
-                        <a id="gdp-co2-btn" class="nav-btn w3-btn"><span>The correlation between CO<span style="font-size: 0.1px">2</span> and GDP</span></a>
+                        <a id="gdp-co2-btn" class="nav-btn w3-btn"><span>The correlation between CO<span
+                                    style="font-size: 0.1px">2</span> and GDP</span></a>
                     </li>
                 </ul>
 
@@ -129,16 +131,12 @@
             此分析為臺灣應用開放資料的廠商之資訊， 以各種視覺化圖型分析廠商的規模、分佈及應用領域及資料集來源等來分析。
         </p>
     </div>
-    <iframe id="frame" src="" width="100%" scrolling="no" onload="resizeIframe(this)"></iframe>
+    <iframe id="frame" src="" width="100%" scrolling="no" onload="resizeIframe(self)"></iframe>
 
 </body>
 
 <script>
     window.onload = function () {
-        // init
-        frame = document.querySelector('#frame')
-        btns = document.querySelectorAll('.nav-btn')
-
         var files = []
         // od_vender
         files['data_source-btn'] = 'od_vender/data_source.html'
@@ -170,18 +168,39 @@
         files['fv_Korea_p-btn'] = 'visitor/korea/Foreign_Visitor_to_Korea(pie_chart).html'
         // aodp member
         files['aodp-btn'] = 'visitor/aodp_tourist.html'
-        
+
         // GDP 
         files['gdp-btn'] = 'gdp/GDP.html'
         files['co2-btn'] = 'gdp/CO2.html'
         files['gdp-co2-btn'] = 'gdp/CO2 and GDP.html'
 
+        // init
+        frame = document.querySelector('#frame')
+        btns = document.querySelectorAll('.nav-btn')
+
+        initStepLeft = btns.length
+
+        console.log(initStepLeft)
+
         for (btn of btns) {
             console.log(btn.id)
             initBtn(btn, files[btn.id])
+            initStepLeft--
         }
-        // Set as DEFAULT Content  
-        document.querySelector('#dfd-btn').click()
+
+        // Set as DEFAULT Content
+        while (initStepLeft != 0) {
+            console.log(initStepLeft)
+            console.log("Init Btn")
+        }
+
+        console.log(initStepLeft)
+
+        DEFAULT_CONTENT = document.querySelector('#co2-btn')
+        console.log(`Default content is ${DEFAULT_CONTENT.id}`)
+        // frame.src = files[DEFAULT_CONTENT.id]
+
+        document.querySelector('#co2-btn').click()
     }
 
     function initBtn(obj, filename) {
