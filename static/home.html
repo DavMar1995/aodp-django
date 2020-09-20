@@ -97,7 +97,7 @@
 
             <!-- GDP -->
             <li>
-                <a id="aodp-btn" class="dropbtn">Facts About AODP</a>
+                <a id="aodp-drop" class="dropbtn">Facts About AODP</a>
                 <ul>
                     <li>
                         <a id="gdp-btn" class="nav-btn w3-btn"><span>Economic Outlook of AODP Economies</span></a>
@@ -113,6 +113,21 @@
                 </ul>
 
             </li>
+
+            <!-- Nantou -->
+            <li>
+                <a id="nantou-drop" class="dropbtn">數字南投學</a>
+                <ul>
+                    <li>
+                        <a id="population-btn" class="nav-btn w3-btn"><span>人口</span></a>
+                    </li>
+                    <li>
+                        <a id="medical-btn" class="nav-btn w3-btn"><span>醫療</span></a>
+                    </li>
+                </ul>
+            </li>
+
+
 
             <!-- cancer -->
             <li>
@@ -174,6 +189,10 @@
         files['co2-btn'] = 'gdp/CO2.html'
         files['gdp-co2-btn'] = 'gdp/CO2 and GDP.html'
 
+        // Nantou 
+        files['population-btn'] = 'nantou/population.html'
+        files['medical-btn'] = 'nantou/medical.html'
+
         // init
         frame = document.querySelector('#frame')
         btns = document.querySelectorAll('.nav-btn')
@@ -203,7 +222,7 @@
         // document.querySelector('#dfd-btn').click()
         document.querySelector('#co2-btn').click()
     }
-    
+
     function initBtn(obj, filename) {
         odInfo = document.querySelector('#od-info')
 
