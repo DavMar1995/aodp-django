@@ -53,22 +53,31 @@
                             <li>
                                 <a id='fv_Korea_p-btn' class='nav-btn'><span>南韓外國旅客數量分析</span></a>
                             </li>
-                            <li>
-                                <a id="tn_gr_dc-btn" class="nav-btn"><span>南韓外國旅客人數與成長率分析</span></a>
-                            </li>
                         </ul>
                     </li>
                     <li>
                         <a class="w3-btn"><span>Visualization</span></a>
                         <ul>
                             <li>
-                                <a id="aodp-btn" class="nav-btn"><span>South Korea</span></a>
+                                <a id="aodp-btn" class="nav-btn w3-btn"><span>South Korea</span></a>
                             </li>
                         </ul>
                     </li>
                 </ul>
             </li>
 
+            <!-- dengue_fever -->
+            <li>
+                <a class="dropbtn" id="df-drop">台灣登革熱分析</a>
+                <ul>
+                    <li>
+                        <a id="dfd-btn" class="nav-btn w3-btn"><span>台灣登革熱分析(一)</span></a>
+                    </li>
+                    <li>
+                        <a id="dfs-btn" class="nav-btn w3-btn"><span>台灣登革熱分析(二)</span></a>
+                    </li>
+                </ul>
+            </li>
 
             <!-- od vender -->
             <li>
@@ -90,7 +99,7 @@
             <li>
                 <a id="aodp-drop" class="dropbtn">Facts About AODP</a>
                 <ul>
-
+                    
                     <li>
                         <a id="aodpcountry-btn" class="nav-btn w3-btn"><span>A country profile of AODP-urban</span></a>
                     </li>
@@ -117,7 +126,7 @@
                 <a id="nantou-drop" class="dropbtn">數字南投學</a>
                 <ul>
                     <li>
-                        <a id="population-btn" class="nav-btn w3-btn"><span>社區發展</span></a>
+                        <a id="community-btn" class="nav-btn w3-btn"><span>社區發展</span></a>
                     </li>
                     <li>
                         <a id="population-btn" class="nav-btn w3-btn"><span>人口</span></a>
@@ -125,37 +134,19 @@
                     <li>
                         <a id="medical-btn" class="nav-btn w3-btn"><span>醫療</span></a>
                     </li>
-                    <li>
-                        <a id="m_vs_p-btn" class="nav-btn w3-btn"><span>醫療 vs 人口</span></a>
-                    </li>
                 </ul>
             </li>
 
-            <!-- Others -->
+
+
+            <!-- cancer -->
             <li>
-                <a id="other-drop" class="dropbtn">其他</a>
-                <ul>
-                    <!-- covid-19 -->
-                    <li>
-                        <a id="andac_Country-btn" class="dropbtn nav-btn w3-btn"><span>COVID-19各地區累積病例與死亡數分析</span></a>
-                    </li>
-                    <!-- dengue_fever -->
-                    <li>
-                        <a class="dropbtn" id="df-drop">台灣登革熱分析</a>
-                        <ul>
-                            <li>
-                                <a id="dfd-btn" class="nav-btn w3-btn"><span>台灣登革熱分析(一)</span></a>
-                            </li>
-                            <li>
-                                <a id="dfs-btn" class="nav-btn w3-btn"><span>台灣登革熱分析(二)</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- cancer -->
-                    <li>
-                        <a id="cancer-btn" class="dropbtn nav-btn w3-btn"><span>台灣癌症分析</span></a>
-                    </li>
-                </ul>
+                <a id="cancer-btn" class="dropbtn nav-btn w3-btn"><span>台灣癌症分析</span></a>
+            </li>
+
+            <!-- covid-19 -->
+            <li>
+                <a id="andac_Country-btn" class="dropbtn nav-btn w3-btn"><span>COVID-19各地區累積病例與死亡數分析</span></a>
             </li>
         </ul>
 
@@ -200,27 +191,24 @@
         files['nt_Korea-btn'] = 'visitor/korea/Number_of_Tourist_of_Korea.html'
         files['fv_Korea_b-btn'] = 'visitor/korea/Foreign_Visitor_to_Korea(bar_chart).html'
         files['fv_Korea_p-btn'] = 'visitor/korea/Foreign_Visitor_to_Korea(pie_chart).html'
-        files['tn_gr_dc-btn'] = 'visitor/korea/Tourist_Number_and_Growth_Rate_of_Different_Continents.html'
         // aodp member
         files['aodp-btn'] = 'visitor/aodp_tourist.html'
 
         // GDP 
-        files['aodpcountry-btn'] = 'aodp/A country profile of AODP-urban.html'
-        files['aodpfact-btn'] = 'aodp/Facts about AODP Members.html'
-        files['gdp-btn'] = 'aodp/GDP.html'
-        files['co2-btn'] = 'aodp/CO2.html'
-        files['gdp-co2-btn'] = 'aodp/CO2 and GDP.html'
+        files['aodpcountry-btn'] = 'gdp/A country profile of AODP-urban.html'
+        files['aodpfact-btn'] = 'gdp/Facts about AODP Members.html'
+        files['gdp-btn'] = 'gdp/GDP.html'
+        files['co2-btn'] = 'gdp/CO2.html'
+        files['gdp-co2-btn'] = 'gdp/CO2 and GDP.html'
 
         // Nantou 
         files['community-btn'] = 'nantou/社區.html'
         files['population-btn'] = 'nantou/population.html'
         files['medical-btn'] = 'nantou/medical.html'
-        files['m_vs_p-btn'] = 'nantou/medical_vs_population.html'
 
         // init
         frame = document.querySelector('#frame')
         btns = document.querySelectorAll('.nav-btn')
-
 
         initStepLeft = btns.length
 
