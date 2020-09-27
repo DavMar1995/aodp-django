@@ -14,10 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf.urls import url, include
 from django.urls import path, re_path
 from django.views.generic.base import RedirectView
+from django.views.generic import TemplateView
+
+from tableau import visitor_urls as visitor_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', RedirectView.as_view(url='/static/home.html')),
+    # path('', TemplateView.as_view('home.html')),
+    path('visitor/', include(visitor_urls)),
+
 ]

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +23,7 @@
                     <li><a class='w3-btn'><span>Japan</span></a>
                         <ul>
                             <li>
-                                <a id='Japan_vd-btn' class='nav-btn w3-btn'><span>各大洲訪日外客數儀表板</span></a>
+                                <a id='Japan_vd-btn' class='nav-btn w3-btn' href='{% static "visitor/japan/各大洲訪日外客數儀表板.html"}'><span>各大洲訪日外客數儀表板</span></a>
                             </li>
                             <li>
                                 <a id='nfv_Japan-btn' class='nav-btn w3-btn'><span>訪日外國旅客人數</span></a>
@@ -162,7 +163,9 @@
             此分析為臺灣應用開放資料的廠商之資訊， 以各種視覺化圖型分析廠商的規模、分佈及應用領域及資料集來源等來分析。
         </p>
     </div>
-    <iframe id="frame" src="" width="100%" scrolling="no" onload="resizeIframe(this)"></iframe>
+    {% block content %}
+    {% endblock %}
+    <!-- <iframe id="frame" src="" width="100%" scrolling="no" onload="resizeIframe(this)"></iframe> -->
 
 </body>
 
@@ -268,5 +271,8 @@
         obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px'
     }
 </script>
+
+{% block extra_scripts %}
+{% endblock %}
 
 </html>
